@@ -1,0 +1,29 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+int main()
+{
+    string filename, line;
+    int lines, counter = 0;
+    cout << "Enter file name";
+    cin >> filename;
+    cout << "Enter an integer";
+    cin >> lines;
+
+    ifstream infile(filename);
+    if (!infile)
+    {
+        cout << "No file found" << endl;
+        exit(1);
+    }
+    while (counter < lines && getline(infile, line)) {
+        cout << line << "";
+        counter++;
+    }
+
+    if (counter < lines) {
+        cout << "File is displayed." << endl;
+    }
+    return 0;
+}
